@@ -7,8 +7,16 @@
 //
 
 #import "AppDelegate.h"
+#import "AppDelegate+EaseMob.h"
+#import <UserNotifications/UserNotifications.h>
 
-@interface AppDelegate ()
+#define EaseMobAppKey @"easemob-demo#chatdemoui"
+
+
+#define RGBACOLOR(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
+
+
+@interface AppDelegate ()<UNUserNotificationCenterDelegate>
 
 @end
 
@@ -17,6 +25,46 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    if (NSClassFromString(@"UNUserNotificationCenter")) {
+        [UNUserNotificationCenter currentNotificationCenter].delegate = self;
+    }
+    
+    _connectionState = EMConnectionConnected;
+    
+//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    self.window.backgroundColor = [UIColor whiteColor];
+    
+    if ([UIDevice currentDevice].systemVersion.floatValue >= 7.0) {
+        [[UINavigationBar appearance] setBarTintColor:RGBACOLOR(30, 167, 252, 1)];
+        [[UINavigationBar appearance] setTitleTextAttributes:
+         [NSDictionary dictionaryWithObjectsAndKeys:RGBACOLOR(245, 245, 245, 1), NSForegroundColorAttributeName, [UIFont fontWithName:@ "HelveticaNeue-CondensedBlack" size:21.0], NSFontAttributeName, nil]];
+    }
+
+#warning Init SDK，detail in AppDelegate+EaseMob.m
+#warning SDK注册 APNS文件的名字, 需要与后台上传证书时的名字一一对应
+    NSString *apnsCertName = nil;
+#if DEBUG
+    apnsCertName = @"chatdemoui_dev";
+#else
+    apnsCertName = @"chatdemoui";
+#endif
+    
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    NSString *appkey = [ud stringForKey:@"identifier_appkey"];
+    if (!appkey) {
+        appkey = EaseMobAppKey;
+        [ud setObject:appkey forKey:@"identifier_appkey"];
+    }
+    
+    [self easemobApplication:application
+didFinishLaunchingWithOptions:launchOptions
+                      appkey:appkey
+                apnsCertName:apnsCertName
+                 otherConfig:@{kSDKConfigEnableConsoleLogger:[NSNumber numberWithBool:YES]}];
+    
+//    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
@@ -46,6 +94,36 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+//    if (_mainController) {
+//        [_mainController jumpToChatList];
+//    }
+//    [self easemobApplication:application didReceiveRemoteNotification:userInfo];
+}
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+{
+//    if (_mainController) {
+//        [_mainController didReceiveLocalNotification:notification];
+//    }
+}
+
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler
+{
+    NSDictionary *userInfo = notification.request.content.userInfo;
+    [self easemobApplication:[UIApplication sharedApplication] didReceiveRemoteNotification:userInfo];
+}
+
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler
+{
+//    if (_mainController) {
+//        [_mainController didReceiveUserNotification:response.notification];
+//    }
+    completionHandler();
+}
+
+
 
 
 @end

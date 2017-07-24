@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+#import <HyphenateLite/HyphenateLite.h>
+#import <EaseUILite/EaseUI.h>
+@interface AppDelegate : UIResponder <UIApplicationDelegate,EMChatManagerDelegate>
+{
+    EMConnectionState _connectionState;
+}
 
 @property (strong, nonatomic) UIWindow *window;
 
