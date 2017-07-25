@@ -10,4 +10,10 @@
 
 @interface ConversationListController : EaseConversationListViewController
 
+- (void)refresh;
+- (void)refreshDataSource;
+
+- (void)isConnect:(BOOL)isConnect;
+- (void)networkChanged:(EMConnectionState)connectionState;
+
 @end

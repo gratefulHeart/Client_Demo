@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		662EE03AB6EA38DFF009D819 /* libPods-DemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 069711FD6F2699E7057FB65B /* libPods-DemoTests.a */; };
+		7C749C881F27937E006EAF0B /* ContactListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C749C871F27937E006EAF0B /* ContactListViewController.m */; };
 		7C946E7E1F263B06000637EC /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C946E7D1F263B06000637EC /* ChatViewController.m */; };
 		7C946E811F2640B9000637EC /* ConversationListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C946E801F2640B9000637EC /* ConversationListController.m */; };
 		7CFA0B711F1D056600C45020 /* AppDelegate+EaseMob.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFA0B701F1D056600C45020 /* AppDelegate+EaseMob.m */; };
@@ -50,6 +51,8 @@
 		2D552CDD4B900FC592B98399 /* libPods-Demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A28528D99A23A49AEFD2C4C /* Pods-DemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DemoUITests/Pods-DemoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		79624C4EC8F227C53178798C /* Pods-DemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DemoTests/Pods-DemoTests.release.xcconfig"; sourceTree = "<group>"; };
+		7C749C861F27937E006EAF0B /* ContactListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactListViewController.h; sourceTree = "<group>"; };
+		7C749C871F27937E006EAF0B /* ContactListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactListViewController.m; sourceTree = "<group>"; };
 		7C946E7C1F263B06000637EC /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
 		7C946E7D1F263B06000637EC /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		7C946E7F1F2640B9000637EC /* ConversationListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversationListController.h; sourceTree = "<group>"; };
@@ -167,6 +170,8 @@
 				7C946E801F2640B9000637EC /* ConversationListController.m */,
 				7C946E7C1F263B06000637EC /* ChatViewController.h */,
 				7C946E7D1F263B06000637EC /* ChatViewController.m */,
+				7C749C861F27937E006EAF0B /* ContactListViewController.h */,
+				7C749C871F27937E006EAF0B /* ContactListViewController.m */,
 				C65D5BEC1F19B6D500E14101 /* Main.storyboard */,
 				C65D5C161F19C04800E14101 /* GFYModifyNoteNameViewController.h */,
 				C65D5C171F19C04800E14101 /* GFYModifyNoteNameViewController.m */,
@@ -498,6 +503,7 @@
 				7CFA0B711F1D056600C45020 /* AppDelegate+EaseMob.m in Sources */,
 				C65D5BEB1F19B6D500E14101 /* ViewController.m in Sources */,
 				C65D5C1E1F1A11F900E14101 /* GFYMoveGroupViewController.m in Sources */,
+				7C749C881F27937E006EAF0B /* ContactListViewController.m in Sources */,
 				C65D5C1B1F1A069300E14101 /* GFYUnlockClientViewController.m in Sources */,
 				C65D5BE81F19B6D500E14101 /* AppDelegate.m in Sources */,
 				7C946E7E1F263B06000637EC /* ChatViewController.m in Sources */,
